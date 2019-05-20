@@ -1,18 +1,26 @@
 package test.com.h2rd.refactoring.integration;
 
-import java.util.ArrayList;
-
-import javax.ws.rs.core.Response;
+import java.util.Arrays;
 
 import org.junit.Test;
 
 import com.h2rd.refactoring.usermanagement.User;
-import com.h2rd.refactoring.web.UserResource;
-
-import junit.framework.Assert;
 
 public class UserIntegrationTest {
 	
+	@Test
+	public void testCurrentCRUD() {
+		for (int i=0; i<5; i++) {
+			User user = new User();
+			user.setName("UserCRUD" + i);
+			user.setEmail("UserCRUD" + i + "@gmail");
+			user.setRoles(Arrays.asList("UserCRUD" + i + "role"));
+			AddGetUpdDelThread browserThread = new AddGetUpdDelThread(user);
+			browserThread.start();
+		}
+	}
+	
+/*	
 	@Test
 	public void createUserTest() {
 		UserResource userResource = new UserResource();
@@ -42,4 +50,5 @@ public class UserIntegrationTest {
 		Response response = userResource.updateUser(updated);
         Assert.assertEquals(200, response.getStatus());
 	}
+*/	
 }

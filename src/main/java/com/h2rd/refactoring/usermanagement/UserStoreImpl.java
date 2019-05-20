@@ -57,7 +57,7 @@ public class UserStoreImpl implements UserStore {
 	}
 
 	@Override
-	public void updateUser(User userToUpdate) throws UserException {
+	public User updateUser(User userToUpdate) throws UserException {
 		boolean isUserExist = false;
 		if (userToUpdate.getRoles() == null || userToUpdate.getRoles().size() == 0) {
 			throw new UserException("User missing role! User must have at least one role");
@@ -78,6 +78,7 @@ public class UserStoreImpl implements UserStore {
 		if (!isUserExist) {
 			addUser(userToUpdate);
 		}
+		return userToUpdate;
 	
 	}
 

@@ -58,9 +58,9 @@ public class UserDao {
         }
     }
 
-    public void updateUser(User userToUpdate) throws DaoException, UserException {
+    public User updateUser(User userToUpdate) throws DaoException, UserException {
         try {
-            userStore.updateUser(userToUpdate);
+            return userStore.updateUser(userToUpdate);
         } 
         catch (UserException uEx) {
         	throw uEx;

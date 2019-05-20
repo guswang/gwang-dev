@@ -19,12 +19,12 @@ import javax.ws.rs.core.Response;
 public class UserResourceUnitTest {
 
 	UserResource userResource;
-	UserDao userDao;
+	//UserDao userDao;
 
 	@Before
 	public void setUp() throws DaoException, UserException {
 		userResource = new UserResource();
-		userDao = new UserDao();
+		UserDao userDao = new UserDao();
 		UserStore userStore = new UserStoreImpl();
 		userDao.setUserStore(userStore);
 		userResource.setUserDao(userDao);
@@ -62,9 +62,12 @@ public class UserResourceUnitTest {
 		user.setRoles(Arrays.asList("admin", "master"));	
 				
 		Response response = userResource.addUser(user);
+		/* 
 		User userAdded = response.readEntity(User.class);
 		System.out.println("======== userAdded: " + userAdded.getName());
-		System.out.println("***** users: " + response.getEntity());
+		Should assert user returned, but Jersey version NOT supporting readEntity. Simplify assertion for now.
+		*/
+		Assert.assertTrue(response.getEntity().toString().contains(user.getName()));
 		Assert.assertEquals(200, response.getStatus());
 	}
 	
@@ -83,6 +86,7 @@ public class UserResourceUnitTest {
 		user2.setRoles(Arrays.asList("admin", "master"));		
 		
 		response = userResource.addUser(user);
+		Assert.assertTrue(response.getEntity().toString().contains("Email must be unique"));
 		Assert.assertEquals(200, response.getStatus());
 	}
 	
