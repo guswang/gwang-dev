@@ -1,3 +1,7 @@
-C:\GusWork\lab\SAP\gwang-dev\src\main\java\com\h2rd\refactoring\usermanagement\User.java
-C:\GusWork\lab\SAP\gwang-dev\src\main\java\com\h2rd\refactoring\usermanagement\UserDao.java
-C:\GusWork\lab\SAP\gwang-dev\src\main\java\com\h2rd\refactoring\web\UserResource.java
+C:\GusWork\lab\SAP\refactored\src\main\java\com\h2rd\refactoring\usermanagement\UserDao.java
+C:\GusWork\lab\SAP\refactored\src\main\java\com\h2rd\refactoring\exception\DaoException.java
+C:\GusWork\lab\SAP\refactored\src\main\java\com\h2rd\refactoring\usermanagement\UserStore.java
+C:\GusWork\lab\SAP\refactored\src\main\java\com\h2rd\refactoring\web\UserResource.java
+C:\GusWork\lab\SAP\refactored\src\main\java\com\h2rd\refactoring\usermanagement\UserStoreImpl.java
+C:\GusWork\lab\SAP\refactored\src\main\java\com\h2rd\refactoring\exception\UserException.java
+C:\GusWork\lab\SAP\refactored\src\main\java\com\h2rd\refactoring\usermanagement\User.java

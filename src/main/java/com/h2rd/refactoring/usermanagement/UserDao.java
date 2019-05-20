@@ -1,71 +1,84 @@
 package com.h2rd.refactoring.usermanagement;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import com.h2rd.refactoring.exception.DaoException;
+import com.h2rd.refactoring.exception.UserException;
 
 public class UserDao {
 
-    public ArrayList<User> users;
+   // public ArrayList<User> users;
+    UserStore userStore;
 
-    public static UserDao userDao;
+    public UserStore getUserStore() {
+		return userStore;
+	}
 
+	public void setUserStore(UserStore userStore) {
+		this.userStore = userStore;
+	}
+
+	//public static UserDao userDao;
+/*
     public static UserDao getUserDao() {
         if (userDao == null) {
             userDao = new UserDao();
         }
         return userDao;
     }
-
-    public void saveUser(User user) {
-        if (users == null) {
-            users = new ArrayList<User>();
-        }
-        users.add(user);
+*/
+    public void addUser(User user) throws DaoException, UserException {
+    	try {
+    		userStore.addUser(user);
+    	}
+    	catch (UserException uEx) {
+    		throw uEx;	//propagate user data exception
+    	}
+    	catch (Exception otherEx) {
+    		new DaoException(otherEx.getMessage());
+    	}
     }
 
-    public ArrayList<User> getUsers() {
+    public List<User> getUsers() throws DaoException {
         try {
-            return users;
-        } catch (Throwable e) {
-            System.out.println("error");
-            return null;
-        }
-    }
-
-    public void deleteUser(User userToDelete) {
-        try {
-            for (User user : users) {
-                if (user.getName() == userToDelete.getName()) {
-                    users.remove(user);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+            return userStore.getUsers();
+        } catch (Exception ex) {
+            
+        	throw new DaoException(ex.getMessage());
         }
     }
 
-    public void updateUser(User userToUpdate) {
+    public void deleteUser(String userName) throws DaoException {
         try {
-            for (User user : users) {
-                if (user.getName() == userToUpdate.getName()) {
-                    user.setEmail(userToUpdate.getEmail());
-                    user.setRoles(userToUpdate.getRoles());
-                }
-            }
-        } catch (RuntimeException e) {
-            e.printStackTrace();
+            userStore.deleteUser(userName);
+            
+        }  catch (Exception ex) {
+            
+        	throw new DaoException(ex.getMessage());
         }
     }
 
-    public User findUser(String name) {
+    public void updateUser(User userToUpdate) throws DaoException, UserException {
         try {
-            for (User user : users) {
-                if (user.getName() == name) {
-                    return user;
-                }
-            }
-        } catch (NullPointerException e) {
-            e.printStackTrace();
+            userStore.updateUser(userToUpdate);
+        } 
+        catch (UserException uEx) {
+        	throw uEx;
         }
-        return null;
+        catch (Exception ex) {
+            
+        	throw new DaoException(ex.getMessage());
+        }
+    }
+
+    public User findUser(String name) throws DaoException {
+		User theUser=null;
+        try {
+            theUser=userStore.findUser(name);
+        } catch (Exception ex) {
+            
+        	throw new DaoException(ex.getMessage());
+        }
+        return theUser;
     }
 }
