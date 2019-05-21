@@ -1,3 +1,4 @@
-C:\GusWork\lab\SAP\gwang-dev\src\test\java\test\com\h2rd\refactoring\unit\UserResourceUnitTest.java
-C:\GusWork\lab\SAP\gwang-dev\src\test\java\test\com\h2rd\refactoring\integration\UserIntegrationTest.java
-C:\GusWork\lab\SAP\gwang-dev\src\test\java\test\com\h2rd\refactoring\unit\UserDaoUnitTest.java
+C:\GusWork\lab\SAP\refactored\src\test\java\test\com\h2rd\refactoring\unit\UserDaoUnitTest.java
+C:\GusWork\lab\SAP\refactored\src\test\java\test\com\h2rd\refactoring\unit\UserResourceUnitTest.java
+C:\GusWork\lab\SAP\refactored\src\test\java\test\com\h2rd\refactoring\integration\AddGetUpdDelThread.java
+C:\GusWork\lab\SAP\refactored\src\test\java\test\com\h2rd\refactoring\integration\UserIntegrationTest.java

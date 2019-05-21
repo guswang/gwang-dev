@@ -1,18 +1,26 @@
 package test.com.h2rd.refactoring.integration;
 
-import java.util.ArrayList;
-
-import javax.ws.rs.core.Response;
-
-import junit.framework.Assert;
+import java.util.Arrays;
 
 import org.junit.Test;
 
 import com.h2rd.refactoring.usermanagement.User;
-import com.h2rd.refactoring.web.UserResource;
 
 public class UserIntegrationTest {
 	
+	@Test
+	public void testCurrentCRUD() {
+		for (int i=0; i<5; i++) {
+			User user = new User();
+			user.setName("UserCRUD" + i);
+			user.setEmail("UserCRUD" + i + "@gmail");
+			user.setRoles(Arrays.asList("UserCRUD" + i + "role"));
+			AddGetUpdDelThread browserThread = new AddGetUpdDelThread(user);
+			browserThread.start();
+		}
+	}
+	
+/*	
 	@Test
 	public void createUserTest() {
 		UserResource userResource = new UserResource();
@@ -22,7 +30,8 @@ public class UserIntegrationTest {
         integration.setEmail("initial@integration.com");
         integration.setRoles(new ArrayList<String>());
         
-        Response response = userResource.addUser(integration.getName(), integration.getEmail(), integration.getRoles());
+        //Response response = userResource.addUser(integration.getName(), integration.getEmail(), integration.getRoles());
+		Response response = userResource.addUser(integration);
         Assert.assertEquals(200, response.getStatus());
 	}
 
@@ -37,7 +46,9 @@ public class UserIntegrationTest {
         updated.setEmail("updated@integration.com");
         updated.setRoles(new ArrayList<String>());
         
-        Response response = userResource.updateUser(updated.getName(), updated.getEmail(), updated.getRoles());
+        //Response response = userResource.updateUser(updated.getName(), updated.getEmail(), updated.getRoles());
+		Response response = userResource.updateUser(updated);
         Assert.assertEquals(200, response.getStatus());
 	}
+*/	
 }
