@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="test.com.h2rd.refactoring.unit.UserResourceUnitTest" time="0.024" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="test.com.h2rd.refactoring.unit.UserResourceUnitTest" time="0.001" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\GusWork\Programs\Java\jdk1_8_0_151\jre\bin"/>
@@ -65,8 +65,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="test.com.h2rd.refactoring.unit.UserResourceUnitTest" name="testDeleteUser" time="0.01"/>
-  <testcase classname="test.com.h2rd.refactoring.unit.UserResourceUnitTest" name="testAddUser" time="0.013"/>
-  <testcase classname="test.com.h2rd.refactoring.unit.UserResourceUnitTest" name="testAddUserDuplicateEmail" time="0.001"/>
-  <testcase classname="test.com.h2rd.refactoring.unit.UserResourceUnitTest" name="testGetUsers" time="0"/>
+  <testcase classname="test.com.h2rd.refactoring.unit.UserResourceUnitTest" name="testAddUserDuplicateEmail" time="0"/>
+  <testcase classname="test.com.h2rd.refactoring.unit.UserResourceUnitTest" name="testDeleteUser" time="0"/>
+  <testcase classname="test.com.h2rd.refactoring.unit.UserResourceUnitTest" name="testAddUser" time="0"/>
+  <testcase classname="test.com.h2rd.refactoring.unit.UserResourceUnitTest" name="testGetUsers" time="0.001"/>
 </testsuite>
